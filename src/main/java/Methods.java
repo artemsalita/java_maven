@@ -19,6 +19,37 @@ public class Methods {
                            "Его дискриминант вычисляется по формуле: d = "+b+"*"+b+" - 4*"+a+"*"+c+"");
     }
 
+    public static double task4411(double x){
+       double result = x + 7;
+       return result;
+    }
+
+    public static double task2790(double a) {
+        // aRad=aDeg*π/180
+        double d = a * Math.PI / 180;
+        double result = Math.sqrt(1 - Math.sin(d) * Math.sin(d));
+        return result;
+    }
+
+
+    public static double task3946(int[] arr){
+
+        double average;
+        double sum = 0;
+
+        if (arr.length == 0){
+            return 0;
+        }
+
+        for (int j = 0; j < arr.length; j++) {
+            sum += arr[j];
+        }
+        average = sum / arr.length;
+        //System.out.println(average);
+        return average;
+
+    }
+
 
 
 }
