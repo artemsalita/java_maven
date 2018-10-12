@@ -41,29 +41,32 @@ public class TestSuite {
 
     @Test//task8
     public void task3669test(){
-        int z1 = Methods.task3669(8,13);
-        int z2 = Methods.task3669(159,161);
-        int z3 = Methods.task3669(13,8);
-        int z4 = Methods.task3669(35,24);
-        int z5 = Methods.task3669(648,648);
-        int z6 = Methods.task3669(-2,600);
+        long z1 = Methods.task3669(8,13);
+        long z2 = Methods.task3669(159,161);
+        long z3 = Methods.task3669(13,8);
+        long z4 = Methods.task3669(35,24);
+        long z5 = Methods.task3669(648,648);
+        long z6 = Methods.task3669(-2,600);
 
-        Assert.assertEquals(1235521,z1,0.00001);
-        Assert.assertEquals(4095841,z2,0.00001);
-        Assert.assertEquals(14,z3,0.00001);
-        Assert.assertEquals(36,z4,0.00001);
-        Assert.assertEquals(0.0,z5,0.00001);
-        Assert.assertEquals(601.0,z6,0.00001);
+        Assert.assertEquals(1235520,z1,0.00001);
+        Assert.assertEquals(4095840,z2,0.00001);
+        Assert.assertEquals(1235520,z3,0.00001);
+        Assert.assertEquals(399703747322880000L,z4,0.00001);
+        Assert.assertEquals(648,z5,0.00001);
+        Assert.assertEquals(0,z6,0.00001);
     }
 
     //task9
     @Test
     public void task1292test(){
 
-        String[] a = new String[] {"a", "b", "c", "d", "e", "f", "g", "h"};
-        String X = Methods.task1292("b");
 
-        Assert.assertEquals("ab",X);
+
+        Assert.assertEquals("a",Methods.task1292("a"));
+        Assert.assertEquals("ab",Methods.task1292("b"));
+        Assert.assertEquals("abcd",Methods.task1292("d"));
+        Assert.assertEquals("abcdefgh",Methods.task1292("h"));
+        Assert.assertEquals("abcdefgh",Methods.task1292("i"));
 
     }
 
@@ -80,6 +83,20 @@ public class TestSuite {
         Assert.assertEquals(3, qe, 0.0001);
         Assert.assertEquals(0, qs, 0.0001);
     }
+@Test //task13
+    public void test9774test() {
+    double[] data1 = new double[]{9 ,8 ,7, 6, 5, 4};
+    double [] result1 = new double[]{279, 248 ,217, 186 ,155, 124};
+    Methods.task9774(31,data1);
+    Assert.assertArrayEquals(result1, data1, 0.0001);
 
+    double[] data2 = new double[]{9 ,8 ,7, 6, 5, 4};
+    double [] result2 = new double[]{-27, -24, -21 ,-18 ,-15, -12};
+    Methods.task9774(-3,data2);
+    Assert.assertArrayEquals(result2, data2, 0.0001);
+
+
+
+}
 
 }
