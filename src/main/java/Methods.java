@@ -141,5 +141,41 @@ public class Methods {
 
     }
 
+    //task14
+    public static void task9271(double[] data) {
+        double A = data[0];
+        double Q;
 
+        for (int b = 1; b < data.length; b++) {
+            if (A > data[b]) {
+
+                A = data[b];
+            }
+        }
+
+        for (int p = 0; p < data.length; p++) {
+            Q = data[p] - A;
+            data[p] = Q;
+        }
+    }
+
+    //task15
+    public static boolean task4847(int X, int Y, int Z) {
+        boolean A = false;
+        if (X == Y || X == Z || Y == Z) {
+            A = true;
+        }
+        if (X!=Y && X!=Z && Y!=Z){
+            A = false;
+        }
+        return A;
+    }
+
+    //task15_1
+    public static boolean task4847_1(int X, int Y, int Z){
+       // boolean A;
+
+        return /*A =*/ X == Y || X ==Z || Z == Y ;
+
+    }
 }

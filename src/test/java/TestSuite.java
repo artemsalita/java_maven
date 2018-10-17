@@ -95,8 +95,77 @@ public class TestSuite {
     Methods.task9774(-3,data2);
     Assert.assertArrayEquals(result2, data2, 0.0001);
 
+    double[] data3 = new double[]{98 ,76, 54};
+    double [] result3 = new double[]{1078,836,594};
+    Methods.task9774(11,data3);
+    Assert.assertArrayEquals(result3, data3, 0.0001);
 
-
+    double[] data4 = new double[]{};
+    double [] result4 = new double[]{};
+    Methods.task9774(73,data4);
+    Assert.assertArrayEquals(result4, data4, 0.0001);
 }
+
+@Test //task14
+    public void task9271test(){
+    double[]data1 = new double[]{5 ,4 ,6 ,2 ,3 ,1};
+    double[] result1 = new double[]{4 ,3 ,5, 1, 2 ,0};
+    Methods.task9271(data1);
+    Assert.assertArrayEquals(data1,result1,0.0001);
+
+    double[]data2 = new double[]{1 ,2 ,3 ,4 ,1 ,2};
+    double[] result2 = new double[]{0, 1, 2,3 ,0, 1};
+    Methods.task9271(data2);
+    Assert.assertArrayEquals(data2,result2,0.0001);
+
+    double[]data3 = new double[]{3 ,4, 1, 2 ,3, 4, 1, 2 ,3,1 ,2};
+    double[] result3 = new double[]{2 ,3, 0, 1, 2 ,3 ,0, 1, 2 ,0, 1};
+    Methods.task9271(data3);
+    Assert.assertArrayEquals(data3,result3,0.0001);
+
+    double[]data4 = new double[]{4, 2, 3 ,4 ,3, 2};
+    double[] result4 = new double[]{2 ,0 ,1 ,2, 1 ,0};
+    Methods.task9271(data4);
+    Assert.assertArrayEquals(data4,result4,0.0001);
+
+    double[]data5 = new double[]{4 ,4, 4 ,4, 4, 3, 2 ,1};
+    double[] result5 = new double[]{3, 3, 3, 3 ,3 ,2, 1, 0};
+    Methods.task9271(data5);
+    Assert.assertArrayEquals(data5,result5,0.0001);
+
+    double[]data6 = new double[]{4 ,4, 4 ,4};
+    double[] result6 = new double[]{0, 0 ,0, 0};
+    Methods.task9271(data6);
+    Assert.assertArrayEquals(data6,result6,0.0001);
+
+    double[]data7 = new double[]{4 ,3};
+    double[] result7 = new double[]{1,0};
+    Methods.task9271(data7);
+    Assert.assertArrayEquals(data7,result7,0.0001);
+}
+
+    @Test //task15
+    public void task4847test (){
+//        boolean A = Methods.task4847(37,59,83);
+//        Assert.assertFalse(A);
+//
+//        boolean A1 = Methods.task4847(19,19,41);
+//        Assert.assertFalse(A1);
+
+        Assert.assertFalse(Methods.task4847(37,59,83));
+        Assert.assertTrue(Methods.task4847(19,19,41));
+        Assert.assertTrue(Methods.task4847(7,11,11));
+        Assert.assertTrue(Methods.task4847(67,-67,67));
+        Assert.assertTrue(Methods.task4847(1,1,1));
+    }
+
+    @Test //task15
+    public void task4847_1test (){
+        Assert.assertFalse(Methods.task4847_1(37,59,83));
+        Assert.assertTrue(Methods.task4847_1(19,19,41));
+        Assert.assertTrue(Methods.task4847_1(7,11,11));
+        Assert.assertTrue(Methods.task4847_1(67,-67,67));
+        Assert.assertTrue(Methods.task4847_1(1,1,1));
+    }
 
 }
