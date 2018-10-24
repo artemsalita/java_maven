@@ -178,4 +178,18 @@ public class Methods {
         return /*A =*/ X == Y || X ==Z || Z == Y ;
 
     }
+
+    //task13-1
+    public static double  task9020 (int X){
+        if(X>=62){
+//            System.out.println("Подкоренное выражение должно быть неотрицательным");
+          String mesaga = "Подкоренное выражение должно быть неотрицательным";
+          IllegalArgumentException M = new IllegalArgumentException(mesaga);
+          throw M;
+        }
+        double A = 3 * Math.sqrt(61 - X);
+        return  A;
+
+    }
+
 }

@@ -168,4 +168,18 @@ public class TestSuite {
         Assert.assertTrue(Methods.task4847_1(1,1,1));
     }
 
+    @Test
+    public void test9020test () {
+
+        double A1 = 3;
+        double X1 =  Methods.task9020(60) ;
+        Assert.assertEquals(A1,X1,0.0001);
+
+        Assert.assertEquals(0,Methods.task9020(61),0.0001);
+
+
+
+
+    }
+
 }

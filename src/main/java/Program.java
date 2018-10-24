@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Program {
     public static void main(String[] args) {
        // В методе main класса Program 3 раза вызовите метод task1860 класса Methods.
@@ -45,10 +47,29 @@ public class Program {
        // String X = Methods.task1292();
        // System.out.println(X);
 
+       // double X = Methods.task9020(0);
+        //System.out.println(X);
 
-
-
-
+//      try  {
+//          Scanner s = new Scanner(System.in);
+//          int X  = s.nextInt();
+//          double Z = Methods.task9020(X);
+//          System.out.println(Z);
+//
+//      }catch (IllegalArgumentException MM){
+//          String description =  MM.getMessage();
+//          System.out.println(description);;
+//        }
+       // System.out.println(Z);
+        Step3();
 
     }
+
+
+
+    public  static  void Step3(){
+        double A = Methods.task9020(99);
+        System.out.println(A);
+    }
+
 }
