@@ -61,15 +61,37 @@ public class Program {
 //          System.out.println(description);;
 //        }
        // System.out.println(Z);
-        Step3();
+//        Step3();
+//        System.out.println("после step3");
+
+        Step4();
+        System.out.println("после step4");//не должно выполнится
 
     }
+
+
+    public static void Step4(){
+        try {
+        double A = Methods.task9020(99);
+        System.out.println(A);
+        System.out.println("Конец Step4");
+    } catch ()
 
 
 
     public  static  void Step3(){
+
+        try {
         double A = Methods.task9020(99);
         System.out.println(A);
+        System.out.println("Конец Step3");
+        }catch (IllegalArgumentException ex){
+            String description = ex.getMessage();
+            System.out.println(description);
+        }
     }
+
+
+
 
 }
