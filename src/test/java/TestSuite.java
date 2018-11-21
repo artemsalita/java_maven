@@ -1,5 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
+import sun.applet.Main;
+
+import java.util.Scanner;
 
 public class TestSuite {
     @Test //task5
@@ -176,10 +179,14 @@ public class TestSuite {
         Assert.assertEquals(A1,X1,0.0001);
 
         Assert.assertEquals(0,Methods.task9020(61),0.0001);
+    }
 
-
-
-
+    @Test
+    public void test(){
+        String data = "Данные\nодин\nдва\nтри\nчетыре";
+        Scanner s = new Scanner(data);
+        int actual = Programm4488_1.work(s);
+        Assert.assertEquals(5,actual,0.0001);
     }
 
 }
