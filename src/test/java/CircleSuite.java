@@ -10,7 +10,6 @@ public class CircleSuite {
     public void area(){
         double result;
 
-
 //        result = Circle.area(3);
 //        Assert.assertEquals(28.2743,result,0.0001);
 
@@ -30,8 +29,6 @@ public class CircleSuite {
         three.r = 7;
         result = Circle.area(three);
         Assert.assertEquals(153.9380,result,0.0001);
-
-
 
     }
 }
