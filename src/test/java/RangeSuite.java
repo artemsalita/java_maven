@@ -49,8 +49,11 @@ public class RangeSuite {
     }
 
     @Test(expected = IllegalArgumentException.class)
+
     public void hasIntersectionIntsWrongRightTest(){
-        Range.hasIntersection(97,101,107,103);
+        int leftA = 97, leftB = 101, rightA = 107, rightB = 103;
+
+        Range.hasIntersection(leftA,leftB,rightA,rightB);
     }
 
     @Test
@@ -94,6 +97,8 @@ public class RangeSuite {
         left.to = 73;
         right.from = 83;
         right.to = 89;
+            result = Range.hasIntersection(left,right);
+            Assert.fail("все сломалось");
         }catch (IllegalArgumentException rr){}
 
         try{
@@ -101,6 +106,8 @@ public class RangeSuite {
             left.to = 101;
             right.from = 107;
             right.to = 103;
+            result = Range.hasIntersection(left,right);
+            Assert.fail("все сломалось");
         }catch (IllegalArgumentException rr){}
 
 

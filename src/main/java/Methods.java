@@ -191,5 +191,15 @@ public class Methods {
         return  A;
 
     }
+    public static Direction backwardTask (double Xa,double Ya,double Xb,double Yb){
+      Direction dir = new Direction();
+      dir.angle = 1;
+      dir.distance = 2;
+      return dir;
+
+
+    }
+
+
 
 }
