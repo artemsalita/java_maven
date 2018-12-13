@@ -56,16 +56,59 @@ public class RangeSuite {
     @Test
     public void hasIntersectionRangesTest(){
         boolean result;
+
         Range left = new Range();
+        Range right = new Range();
+
+
         left.from = 2;
         left.to = 3;
-
-        Range right = new Range();
         right.from = 5;
         right.to = 7;
-
-result = Range.hasIntersection(left,right);
+        result = Range.hasIntersection(left,right);
         Assert.assertFalse(result);
+
+        left.from = 11;
+        left.to = 17;
+        right.from = 13;
+        right.to = 19;
+        result = Range.hasIntersection(left,right);
+        Assert.assertTrue(result);
+
+        left.from = 23;
+        left.to = 37;
+        right.from = 29;
+        right.to = 31;
+        result = Range.hasIntersection(left,right);
+        Assert.assertTrue(result);
+
+        left.from = 43;
+        left.to = 53;
+        right.from = 47;
+        right.to = 57;
+        result = Range.hasIntersection(left,right);
+        Assert.assertTrue(result);
+
+        try{
+        left.from = 79;
+        left.to = 73;
+        right.from = 83;
+        right.to = 89;
+        }catch (IllegalArgumentException rr){}
+
+        try{
+            left.from = 97;
+            left.to = 101;
+            right.from = 107;
+            right.to = 103;
+        }catch (IllegalArgumentException rr){}
+
+
+
+
+
+
+
 
     }
 
