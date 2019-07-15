@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
+
 /**
  * Created by adm on 28.11.2018.
  */
@@ -23,10 +25,10 @@ public class PointSuite {
     @Test
     public void ditanceToIntsTest() {
 
-        Point src = new Point();
+        Point src = new Point(1,1);
 
-        src.x = 1;
-        src.y = 1;
+//        src.x = 1;
+//        src.y = 1;
 
         double d;
 
@@ -36,22 +38,28 @@ public class PointSuite {
     }
 
     @Test
-    public  void distanceToPointTest (){
-        Point src = new Point();
-        Point dest = new Point();
+    public  void distanceToPointTest () {
+        Point src = new Point(-2,4);
+        Point dest = new Point(8,-10);
 
-        src.x = -2;
-        src.y = 4;
+//        src.x = -2;
+//        src.y = 4;
 
-        dest.x = 8;
-        dest.y = -10;
+//        dest.x = 8;
+//        dest.y = -10;
 
         double d;
 
         d = src.distanceTo(dest);
-        Assert.assertEquals(d,17.2046,0.0001);
-
+        Assert.assertEquals(d, 17.2046, 0.0001);
     }
+
+//        @Test
+//                public void test1() {
+//            //создание объекта "файл" с данными о точке
+////            File f = new File( );
+//        }
+
 
 }
 

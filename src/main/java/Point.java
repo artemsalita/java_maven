@@ -4,6 +4,14 @@
 public class Point {
     public int x;
     public int y;
+    public String color;
+    public Point (int x, int y){
+//        this.x = x;
+//        this.y = y;
+        this.color = "white";
+
+    }
+
 
 //    public Point(int px, int py){
 //        this.x = px;
@@ -15,6 +23,7 @@ public class Point {
     public static double distanceBetween (int ax, int ay, int bx, int by){
         int dx = ax - bx;
         int dy = ay - by;
+
 
         return Math.sqrt(dx * dx + dy * dy);
     }
