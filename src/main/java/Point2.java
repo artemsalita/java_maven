@@ -15,3 +15,5 @@ public class Point2 {
     }
 
 }
+
+//https://metanit.com/java/tutorial/3.1.php - про классы и объекты
