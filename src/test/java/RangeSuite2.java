@@ -25,5 +25,40 @@ public class RangeSuite2 {
         Assert.assertFalse(result2);
     }
 
+    @Test (expected = IllegalArgumentException.class) //сразу объявим что ожидаем исключение
+    public void hasIntersectionIntsWrongLeftTest(){
+        Range2.hasIntersection(79, 73, 83, 89);
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void hasIntersectionIntsWrongRightTest(){
+        Range2.hasIntersection(97, 101, 107, 103);
+    }
+
+    @Test
+    public void hasIntersectionRangesTest(){
+        Range2 left = new Range2();
+        Range2 right = new Range2();
+        boolean result2;
+
+       left.from = 2;
+       left.to = 3;
+
+       right.from = 5;
+       right.to = 7;
+
+       result2 = Range2.hasIntersection(left,right);
+        Assert.assertFalse(result2);
+
+        left.from = 11;
+        left.to = 17;
+
+        right.from = 13;
+        right.to = 19;
+
+        result2 = Range2.hasIntersection(left,right);
+        Assert.assertTrue(result2);
+
+    }
 
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'/><title>17 Коллекции</title><style>.check_single {
+    margin:15px;
+	border:1px solid black;
+	padding:5px;
+    width:calc(100% - 40px);
+}
+sqrt val {
+	border-top: 1px solid black;
+}
+sqrt:before {
+	content:"\221A";
+}
+.section {
+	counter-reset:section;
+}
+.section h3:after {
+	counter-increment:section;
+	content: " " counter(section);
+}
+table {
+	border-collapse:collapse;
+}
+.check_values {
+	width:100%;
+	counter-reset:test_case;
+}
+.check_values td:first-child::before {
+	counter-increment:test_case;
+	content: counter(test_case);
+}
+table td, table th {
+	border:1px solid black;
+	text-align:center;
+}
+.check_values td:first-child{
+	width:40px;
+}
+.lab_nav ol {
+	list-style:none;
+}
+.nav {
+	position:fixed;
+	top:0px;
+	right:0px;
+	margin:15px;
+	clear:both;
+}
+.nav ul{
+	list-style-type:none;
+	padding:0px;
+	float:left;
+}
+.nav li {
+	margin:2px;
+	border:1px solid black;
+}
+.nav li a {
+	display:block;
+	padding:7px;
+}
+.task_block {
+	width:80%;
+	page-break-inside:avoid;
+	padding:10px;
+	display:block;
+}
+.task_block:target{
+	background-color:lightgrey;
+}
+.task_block:target .task_id{
+	color:white;
+}
+.task_id {
+	float:right;
+	color:lightgrey;
+}
+.quiz_block {
+	width:80%;
+}
+.quiz_block:target{
+	background-color:lightgrey;
+}
+.task_desc {
+	margin:5px;
+}
+.example_image {
+	width:200px;
+}
+.lab_nav {
+	width:80%;
+	overflow:auto;
+}
+.check_values .preformatted, .preformatted {
+	font-family:monospace;
+	white-space:pre;
+	text-align:left;
+	padding:10px;
+}
+formula {
+	font-weight:bold;
+	text-align:center;
+	vertical-align:middle;
+}
+fraction {
+	display:inline-block;
+	text-align:center;
+	vertical-align:middle;
+	font-weight:bold;
+}
+formula .abs{
+	border-left: solid black 1px;
+    border-right: solid black 1px;
+    padding: 2px;
+}
+numerator {
+	display:block;
+	border-bottom:2px solid black;
+}
+denominator {
+	display:block;
+}
+spoiler {
+	color:darkgrey;
+}
+spoiler origin {
+	display:none;
+}
+spoiler:hover origin {
+	display:inline;
+}
+spoiler trans {
+	display:inline;
+}
+spoiler:hover trans {
+	display:none;
+}
+.comment{
+	color:darkgrey;
+}
+.step{
+	display:none;
+}
+.step:last-child, .step:target{
+	display:block;
+}
+.step:target ~ .step:last-child{
+	display:none;
+}
+.console{
+	background-color:black;
+	color:white;
+	width:300px;
+}
+zoom{
+	background-color:gray;
+	font-size:40pt;
+}
+@media print {
+	.nav {
+		display:none;
+	}
+	.lab_nav {
+		display:none;
+	}
+	ol li {
+		margin-bottom:30px;
+	}
+	.quiz_block {
+		width:100%;
+	}
+	.hide_on_print .check_values, .hide_on_print .check_single{
+		display:none;
+	}
+	.hide_on_print img{
+		display:none;
+	}
+	.empty_on_print td{
+		color:transparent;
+	}
+	.empty_on_print img{
+		visibility:hidden;
+	}
+}</style></head><body class='section'><a name='heading'><h1>Коллекции</h1></a><div class='lab_nav'>Другие темы<ol><li>1 <a href='Задания к 1 практической работе.html'>Заполнение шаблона текстом</a></li><li>2 <a href='Задания к 2 практической работе.html'>Организация вычислений</a></li><li>3 <a href='Задания к 3 практической работе.html'>Проверка исходных данных</a></li><li>4 <a href='Задания к 4 практической работе.html'>Взаимоисключающие случаи</a></li><li>5 <a href='Задания к 5 практической работе.html'>Работа с интервалами значений</a></li><li>6 <a href='Задания к 6 практической работе.html'>Реорганизация повторяющихся действий</a></li><li>7 <a href='Задания к 7 практической работе.html'>Вложенные циклы</a></li><li>8 <a href='Задания к 8 практической работе.html'>Базовые операции с массивами</a></li><li>9 <a href='Задания к 9 практической работе.html'>Использование числовых массивов</a></li><li>10 <a href='Задания к 10 практической работе.html'>Вычисление агрегатов</a></li><li>11 <a href='Задания к 11 практической работе.html'>Строки</a></li><li>12 <a href='Задания к 12 практической работе.html'>Обработка неизвестного объема данных</a></li><li>13 <a href='Задания к 13 практической работе.html'>Запись в файлы</a></li><li>14 <a href='Задания к 14 практической работе.html'>Методы</a></li><li>15 <a href='Задания к 15 практической работе.html'>Исключения</a></li><li>16 <a href='Задания к 16 практической работе.html'>Классы и объекты</a></li><li>17 <a href='Задания к 17 практической работе.html'>Коллекции</a></li></ol></div><div class='nav'><ul><li><a href='#heading'>^</a></li></ul><ul></ul></div></body></html>

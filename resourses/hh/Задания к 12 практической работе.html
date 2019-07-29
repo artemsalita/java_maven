@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset='utf-8'/><title>12 Запись в файлы</title><style>.check_single {
+<!DOCTYPE html><html><head><meta charset='utf-8'/><title>12 Обработка неизвестного объема данных</title><style>.check_single {
     margin:15px;
 	border:1px solid black;
 	padding:5px;
@@ -180,699 +180,997 @@ zoom{
 	.empty_on_print img{
 		visibility:hidden;
 	}
-}</style></head><body class='section'><a name='heading'><h1>Запись в файлы</h1></a><div class='lab_nav'>Другие темы<ol><li>1 <a href='Задания к 1 практической работе.html'>Заполнение шаблона текстом</a></li><li>2 <a href='Задания к 2 практической работе.html'>Организация вычислений</a></li><li>3 <a href='Задания к 3 практической работе.html'>Проверка исходных данных</a></li><li>4 <a href='Задания к 4 практической работе.html'>Взаимоисключающие случаи</a></li><li>5 <a href='Задания к 5 практической работе.html'>Работа с интервалами значений</a></li><li>6 <a href='Задания к 6 практической работе.html'>Реорганизация повторяющихся действий</a></li><li>7 <a href='Задания к 7 практической работе.html'>Вложенные циклы</a></li><li>8 <a href='Задания к 8 практической работе.html'>Массивы</a></li><li>9 <a href='Задания к 9 практической работе.html'>Вычисление агрегатов</a></li><li>10 <a href='Задания к 10 практической работе.html'>Строки</a></li><li>11 <a href='Задания к 11 практической работе.html'>Обработка неизвестного объема данных</a></li><li>12 <a href='Задания к 12 практической работе.html'>Запись в файлы</a></li><li>13 <a href='Задания к 13 практической работе.html'>Методы</a></li><li>14 <a href='Задания к 14 практической работе.html'>Исключения</a></li><li>15 <a href='Задания к 15 практической работе.html'>Классы и объекты</a></li><li>16 <a href='Задания к 16 практической работе.html'>Коллекции</a></li></ol></div><div class='nav'><ul><li><a href='#heading'>^</a></li><li><a href='#task9300' class='example'>1*</a><li><a href='#task3951'>2</a><li><a href='#task7343'>3</a><li><a href='#task7060'>4</a><li><a href='#task6409'>5</a></ul><ul><li><a href='#task2386' class='example'>6*</a><li><a href='#task4342'>7</a><li><a href='#task9159'>8</a><li><a href='#task5309'>9</a><li><a href='#task3290'>10</a><li><a href='#task5345'>11</a><li><a href='#task6812'>12</a></ul></div><div class="task_block" id="info1">
-	<div class="task_desc"><p>SVG (от англ. Scalable Vector Graphics — масштабируемая векторная графика) — язык разметки двумерной векторной графики в формате XML.</p>
-	<p>Особенности SVG:
-	<ul>
-	<li>SVG рисунок это текстовый файл с расширением .svg</li>
-	<li>SVG рисунки могут встраиваться в HTML страницы (с расширением .html)</li>
-	<li>SVG широко используется для описания векторной графики в Интернете</li>
-	<li>SVG описывает рисунок в формате XML.</li>
-	<li>Рисунки в формате SVG не теряют качество при масштабировании, растяжении или сжатии.</li>
-	<li>Все элементы SVG рисунка могут быть анимированы</li>
-	<li>SVG соответствует международным стандартам DOM и XSL</li>
-	</ul></p>
-	<p>Существует множество программ для их редактирования, например Inkscape, CorelDRAW, Adobe Illustrator. В рамках данной лабораторной работы мы будем создавать векторные рисунки с помощью функций текстового вывода в файл.</p>
-	<p>Для того, чтобы немедленно увидеть результат наших действий, мы воспользуемся возможностью встраивать SVG рисунки внутрь HTML страниц.</p>
-	<p>Создайте текстовый файл, скопируйте в него следующий код.</p>
-	<div class="preformatted check_single">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;meta charset=&quot;utf-8&quot;/&gt;
-&lt;head/&gt;
-&lt;body&gt;
-&lt;h1&gt;Мой первый векторный рисунок&lt;/h1&gt;
-
-&lt;svg width=&quot;800&quot; height=&quot;600&quot;&gt;
-	&lt;circle cx=&quot;50&quot; cy=&quot;50&quot; r=&quot;40&quot; stroke=&quot;green&quot; stroke-width=&quot;4&quot; fill=&quot;yellow&quot; /&gt;
-&lt;/svg&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-	</div>
-	<p>Сохраните файл с расширением «.html».
-	Откройте получившийся файл в браузере. В результате вы должны увидеть следующее изображение.</p>
-	<img src="images/Main example.png"/>
-	<p>Обратите внимание:
-	<ul>
-		<li>Описание SVG рисунка начинается с элемента &lt;svg&gt;</li>
-		<li>Высота и ширина SVG рисунка описывается атрибутами элемента &lt;svg&gt;.
-Высоте соответствует height. Ширине соответствует width.</li>
-		<li>Элемент &lt;circle&gt; используется для создания круга.</li>
-		<li>Атрибуты cx и cy описывают координаты центра круга по оси X и Y.
-Если они не будут указаны, то центр будет находиться в точке (0,0)</li>
-		<li>Атрибут r описывает радиус круга.</li>
-		<li>Атрибут stroke указывает на цвет обводки круга, а stroke-width – на толщину линии.
-Данный круг обведен зеленой (green) линией толщиной 4 пикселя.</li>
-		<li>Атрибут fill описывает цвет заливки круга. В данном примере он желтый (yellow).</li>
-		<li>Описание SVG рисунка заканчивается элементом &lt;/svg&gt;</li>
-	</ul></p>
-	</div>
-	</div><div class="task_block empty_on_print" id="task9300">
-	<div class="task_id">9300</div>
-    <h3>Задача</h3>
-	<div class="task_desc">Написать программу для построения кругов в формате SVG. Пользователь вводит координаты центра круга (cx, cy), его радиус (r) и толщину обводки (stroke-width). Цвет круга – желтый, цвет обводки – зеленый. Если круг не видно на рисунке или видно частично, то нужно вывести сообщение об ошибке.</div>
+}</style></head><body class='section'><a name='heading'><h1>Обработка неизвестного объема данных</h1></a><div class='lab_nav'>Другие темы<ol><li>1 <a href='Задания к 1 практической работе.html'>Заполнение шаблона текстом</a></li><li>2 <a href='Задания к 2 практической работе.html'>Организация вычислений</a></li><li>3 <a href='Задания к 3 практической работе.html'>Проверка исходных данных</a></li><li>4 <a href='Задания к 4 практической работе.html'>Взаимоисключающие случаи</a></li><li>5 <a href='Задания к 5 практической работе.html'>Работа с интервалами значений</a></li><li>6 <a href='Задания к 6 практической работе.html'>Реорганизация повторяющихся действий</a></li><li>7 <a href='Задания к 7 практической работе.html'>Вложенные циклы</a></li><li>8 <a href='Задания к 8 практической работе.html'>Базовые операции с массивами</a></li><li>9 <a href='Задания к 9 практической работе.html'>Использование числовых массивов</a></li><li>10 <a href='Задания к 10 практической работе.html'>Вычисление агрегатов</a></li><li>11 <a href='Задания к 11 практической работе.html'>Строки</a></li><li>12 <a href='Задания к 12 практической работе.html'>Обработка неизвестного объема данных</a></li><li>13 <a href='Задания к 13 практической работе.html'>Запись в файлы</a></li><li>14 <a href='Задания к 14 практической работе.html'>Методы</a></li><li>15 <a href='Задания к 15 практической работе.html'>Исключения</a></li><li>16 <a href='Задания к 16 практической работе.html'>Классы и объекты</a></li><li>17 <a href='Задания к 17 практической работе.html'>Коллекции</a></li></ol></div><div class='nav'><ul><li><a href='#heading'>^</a></li><li><a href='#task2324' class='example'>1*</a><li><a href='#task8731'>2</a><li><a href='#task4082'>3</a></ul><ul><li><a href='#task6175' class='example'>4*</a><li><a href='#task4488'>5</a><li><a href='#task4954'>6</a><li><a href='#task4642'>7</a><li><a href='#task5537'>8</a><li><a href='#task5847'>9</a><li><a href='#task4769'>10</a><li><a href='#task9930'>11</a><li><a href='#task6861'>12</a><li><a href='#task3226'>13</a><li><a href='#task4372'>14</a><li><a href='#task4463'>15</a><li><a href='#task1668'>16</a><li><a href='#task9417'>17</a><li><a href='#task3148'>18</a><li><a href='#task2137'>19</a></ul></div><div id="task2324" class="task_block hide_on_print">
+	<div class="task_id">2324</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Пользователь вводит неизвестное количество целых чисел. При вводе числа "0", прием данных завершается. Вывести сумму и количество введенных чисел.</div>
 	<table class="check_values">
 		<tr>
-			<th rowspan="2">Номер теста</th>
-			<th colspan="4">Вводимые данные</th>
-			<th rowspan="2">Результат</th>
-		</tr>
-		<tr>
-			<th>cx</th>
-			<th>cy</th>
-			<th>r</th>
-			<th>stroke-<br/>width</th>
+			<th>Номер теста</th>
+			<th>Вводимые данные</th>
+			<th>Результат</th>
 		</tr>
 		<tr>
 			<td></td>
-			<td>0</td>
-			<td>0</td>
-			<td>20</td>
+			<td class="preformatted">1
+2
+3
+4
+5
+0</td>
+			<td class="preformatted">Сумма чисел: 15, Количество чисел: 6</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">0</td>
+			<td class="preformatted">Сумма чисел: 0, Количество чисел: 1</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">-1
+-2
+0</td>
+			<td class="preformatted">Сумма чисел: -3, Количество чисел: 3</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+1
+0</td>
+			<td class="preformatted">Сумма чисел: 12, Количество чисел: 13</td>
+		</tr>
+	</table>
+</div><div id="link_c4_p16.1" class="task_block">
+	<div class="check_single">Конструкция while() {} - не единственный способ оформления повторяющихся действий. Более подробно другие конструкции рассмотрены в главе 16.1 "Выбор типа цикла" части IV книги "Совершенный код" <a href="Stiv_Makkonnell_-_Sovershenny_kod_2-e_izdanie.pdf#page=380" target="_blank">(открыть в новой вкладке)</a>.
+	</div>
+</div><div id="task8731" class="task_block hide_on_print">
+	<div class="task_id">8731</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Пользователь вводит неизвестное количество целых чисел. Прием данных прекращается, когда сумма введенных чисел становится больше 1000. Вывести количество суммированных чисел.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Вводимые данные</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">501
+501</td>
+			<td class="preformatted">2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">0
+0
+1001</td>
+			<td class="preformatted">3</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">400
+400
+200
+1</td>
+			<td class="preformatted">4</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">190
+190
+190
+190
+190
+190
+190
+190
+190
+190</td>
+			<td class="preformatted">6</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">130
+130
+130
+130
+130
+130
+130
+130
+130
+130</td>
+			<td class="preformatted">8</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">129
+179
+89
+155
+188
+163
+94
+66
+84
+151
+109
+65
+83
+</td>
+			<td class="preformatted">8</td>
+		</tr>
+	</table>
+</div><div id="task4082" class="task_block hide_on_print">
+	<div class="task_id">4082</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Пользователь вводит неизвестное количество целых чисел. Прием данных прекращается, когда введенное число попадает в интервал от 83 до 199, исключая границы. Определить количество чисел, которые на числовом ряду находятся слева и справа от данного интервала. Вывести в отформатированном виде.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Вводимые данные</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">10
+20
+100</td>
+			<td class="preformatted">Количество слева: 2, количество справа: 0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">300
+400
+100</td>
+			<td class="preformatted">Количество слева: 0, количество справа: 2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">1000
+1000
+83
+150</td>
+			<td class="preformatted">Количество слева: 1, количество справа: 2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">1
+1
+1
+1
+1
+1
+1
+1
+199
+90</td>
+			<td class="preformatted">Количество слева: 8, количество справа: 1</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task6175">
+	<div class="task_id">6175</div>
+    <h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит записи, написанные в столбик без дополнительного оформления. Нужно вывести записи из файла в строчку через запятую. Перед первой и после последней записью запятой быть не должно.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>стол, стул, дверь, шкаф, кровать</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>космос</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл пуст</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>кирпич, бетон, дерево</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6175/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>один два три четыре пять</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4488">
+	<div class="task_id">4488</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит множество записей, написанных в столбик без дополнительного оформления. Посчитать количество записей в файле (C), исключая первую запись. Вывести первую запись и количество остальных записей.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Поэмы 14</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>блокбастеры 0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Научная и научно-популярная литература 160</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Сказки 7</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4488/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл пуст</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4954">
+	<div class="task_id">4954</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит слова, написаные в столбик без дополнительного оформления.  Количество слов в файле заранее неизвестно. Определить, сколько раз встречаются слова, содержащие символ A.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Вводимые данные (А)</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>а</td>
+			<td><a href="files/task4954/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>36</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>ц</td>
+			<td><a href="files/task4954/test2.txt" target="_blank">открыть в новой вкладке</a></td>
 			<td>5</td>
-			<td>Левая точка круга должна иметь неотрицательные координаты</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>400</td>
-			<td>300</td>
-			<td>200</td>
+			<td>н</td>
+			<td><a href="files/task4954/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>92</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>ч</td>
+			<td><a href="files/task4954/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>п</td>
+			<td><a href="files/task4954/test5.txt" target="_blank">открыть в новой вкладке</a></td>
 			<td>0</td>
-			<td><img src="images/task9300test2.png" class="example_image"/></td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4642">
+	<div class="task_id">4642</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит множество слов, разделенных пробелами. Посчитать количество слов. Словом считать любые непробельные символы, идущие подряд.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
 		</tr>
 		<tr>
 			<td></td>
-			<td>600</td>
-			<td>400</td>
-			<td>60</td>
+			<td><a href="files/task4642/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>7</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4642/test2.txt" target="_blank">открыть в новой вкладке</a></td>
 			<td>10</td>
-			<td><img src="images/task9300test3.png" class="example_image"/></td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>254</td>
-			<td>356</td>
-			<td>100</td>
-			<td>80</td>
-			<td><img src="images/task9300test5.png" class="example_image"/></td>
+			<td><a href="files/task4642/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>933</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>400</td>
-			<td>300</td>
-			<td>50</td>
-			<td>100</td>
-			<td><img src="images/task9300test6.png" class="example_image"/></td>
+			<td><a href="files/task4642/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>300</td>
-			<td>300</td>
-			<td>0</td>
-			<td>25</td>
-			<td>Толщина обводки должна быть меньше диаметра круга</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>100</td>
-			<td>100</td>
-			<td>150</td>
-			<td>20</td>
-			<td>Левая точка круга должна иметь неотрицательные координаты</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>300</td>
-			<td>250</td>
-			<td>80</td>
-			<td>162</td>
-			<td>Толщина обводки должна быть меньше диаметра круга</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>600</td>
-			<td>800</td>
-			<td>50</td>
-			<td>100</td>
-			<td>Нижняя точка круга должна быть в пределах рисунка</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>900</td>
-			<td>200</td>
-			<td>51</td>
-			<td>102</td>
-			<td>Правая точка круга должна быть в пределах рисунка</td>
+			<td><a href="files/task4642/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл пуст</td>
 		</tr>
 	</table>
-</div><div class="task_block" id="info2">
-<div class="task_desc">Формат SVG также поддерживает следующие фигуры:
-<ul>
-	<li>Прямоугольники</li>
-	<li>Линии</li>
-	<li>а также некоторые другие</li>
-</ul>
-Прямоугольник описывается элементом &lt;rect&gt;.
-<ul>
-	<li>Положение прямоугольника определяется координатами его верхнего левого угла и описывается атрибутами x и y.</li>
-	<li>Ширина и высота прямоугольника зависит от атрибутов width и height соответственно.</li>
-	<li>Цвет заливки, цвет обводки и толщина обводки описывается, так же как и для круга.</li>
-	<li>У всех фигур есть также свойство opacity. Оно отвечает за прозрачность фигуры и представляет собой дробное число от 0 до 1.</li>
-</ul>
-Линия описывается элементом &lt;line&gt;
-<ul>
-	<li>
-	Положение линии описывается двумя точками: x1, y1 и x2, y2.</li>
-	<li>Цвет линии описывается атрибутом stroke.
-	Толщина линии описывается атрибутом stroke-width.</li>
-</ul>
-</div>
-</div><div class="task_block empty_on_print" id="task3951">
-	<div class="task_id">3951</div>
+</div><div class="task_block" id="task5537">
+	<div class="task_id">5537</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит комбинации из четырех букв, написаные в столбик без дополнительного оформления. Количество записей заранее не известно. Определить, сколько раз встречаются такие записи, в которых есть две одинаковых буквы подряд. Например: ааде, адде, адее.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл пуст</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>6</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>569</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>253</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Запись 'Опять, как в годы золотые,' длиннее четырех символов</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5537/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Запись 'шъх' короче четырех символов</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task5847">
+	<div class="task_id">5847</div>
     <h3>Задача</h3>
-	<div class="task_desc">Написать программу для построения красного прямоугольника с синей обводкой, толщиной 2 пикселя. Пользователь вводит координаты верхнего левого угла (x,y), ширину (width) и высоту (height) прямоугольника. Если прямоугольник получается невидимым, то вывести сообщение об ошибке.</div>
+	<div class="task_desc">Пользователь вводит символ А. Символ А это буква латинского алфавита. Посчитать количество символов, которые находятся в файле после А. Количество символов в строке заранее неизвестно. Если в файле больше одной строки, нужно вывести сообщение об ошибке.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Вводимые данные</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>B</td>
+			<td>32</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Y</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>I</td>
+			<td>24</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>F</td>
+			<td>0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>B</td>
+			<td>Указанная буква не найдена</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>S</td>
+			<td>В данной строке несколько искомых букв</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task5847/test8.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>S</td>
+			<td>В файле слишком много строк</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4769">
+	<div class="task_id">4769</div>
+	<h3>Задача</h3>
+	<div class="task_desc">Пользователь вводит символ А и символ B. Это буквы латинского алфавита. Посчитать количество символов, которые находятся в первой строке файла между А и B. Количество символов в строке заранее неизвестно. Если в файле больше одной строки, нужно вывести сообщение об ошибке.</div>
 	<table class="check_values">
 		<tr>
 			<th rowspan="2">Номер теста</th>
-			<th colspan="4">Вводимые данные</th>
+			<th rowspan="2">Содержимое файла</th>
+			<th colspan="2">Вводимые данные</th>
 			<th rowspan="2">Результат</th>
 		</tr>
 		<tr>
-			<th>x</th>
-			<th>y</th>
-			<th>width</th>
-			<th>height</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td>400</td>
-			<td>300</td>
-			<td>250</td>
-			<td>250</td>
-			<td><img src="images/task3951test1.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>135</td>
-			<td>100</td>
-			<td>350</td>
-			<td>100</td>
-			<td><img src="images/task3951test3.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>400</td>
-			<td>100</td>
-			<td>200</td>
-			<td>300</td>
-			<td><img src="images/task3951test4.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>200</td>
-			<td>200</td>
-			<td>1</td>
-			<td>100</td>
-			<td><img src="images/task3951test6.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>120</td>
-			<td>120</td>
-			<td>0</td>
-			<td>180</td>
-			<td>Ширина прямоугольника должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>200</td>
-			<td>200</td>
-			<td>100</td>
-			<td>0</td>
-			<td>Высота прямоугольника должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>400</td>
-			<td>300</td>
-			<td>420</td>
-			<td>100</td>
-			<td>Правая сторона прямоугольника должна быть в пределах рисунка</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>1200</td>
-			<td>600</td>
-			<td>50</td>
-			<td>100</td>
-			<td>Правая сторона прямоугольника должна быть в пределах рисунка</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>601</td>
-			<td>601</td>
-			<td>51</td>
-			<td>101</td>
-			<td>Нижняя сторона прямоугольника должна быть в пределах рисунка</td>
-		</tr>
-	</table>
-</div><div class="task_block empty_on_print" id="task7343">
-	<div class="task_id">7343</div>
-    <h3>Задача</h3>
-	<div class="task_desc"><p>Написать программу для построения композиции: Четыре одинаковых желтых круга, с центрами в различных углах красного полупрозрачного (opacity=”0.5”) прямоугольника. Прямоугольник находится перед кругами. Пользователь вводит координаты верхнего левого угла (x,y), ширину (width) и высоту (height) прямоугольника, а также радиус (r) кругов. Если хотя бы один круг не видно на рисунке, выводить сообщение об ошибке. Если прямоугольник не видно на рисунке, выводить сообщение об ошибке.</p>
-	<p><img src="images/task7343example.png" class="example_image"/></p></div>
-	<table class="check_values">
-		<tr>
-			<th rowspan="2">Номер теста</th>
-			<th colspan="5">Вводимые данные</th>
-			<th rowspan="2">Результат</th>
-		</tr>
-		<tr>
-			<th>x</th>
-			<th>y</th>
-			<th>width</th>
-			<th>height</th>
-			<th>r</th>
-		</tr>
-		<tr>
-			<td></td>
-			<td>200</td>
-			<td>200</td>
-			<td>300</td>
-			<td>100</td>
-			<td>40</td>
-			<td><img src="images/task7343test1.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>150</td>
-			<td>180</td>
-			<td>120</td>
-			<td>300</td>
-			<td>50</td>
-			<td><img src="images/task7343test2.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>200</td>
-			<td>200</td>
-			<td>100</td>
-			<td>100</td>
-			<td>120</td>
-			<td><img src="images/task7343test5.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>250</td>
-			<td>250</td>
-			<td>0</td>
-			<td>100</td>
-			<td>20</td>
-			<td>Ширина прямоугольника должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>200</td>
-			<td>120</td>
-			<td>120</td>
-			<td>0</td>
-			<td>25</td>
-			<td>Высота прямоугольника должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>700</td>
-			<td>100</td>
-			<td>150</td>
-			<td>200</td>
-			<td>20</td>
-			<td>Правая точка круга должна быть в пределах рисунка</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>300</td>
-			<td>300</td>
-			<td>200</td>
-			<td>200</td>
-			<td>0</td>
-			<td>Радиус круга должен быть положительным</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>25</td>
-			<td>25</td>
-			<td>100</td>
-			<td>100</td>
-			<td>50</td>
-			<td>Верхняя точка круга должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>700</td>
-			<td>500</td>
-			<td>99</td>
-			<td>102</td>
-			<td>3</td>
-			<td>Правая точка круга должна быть в пределах рисунка</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>-10</td>
-			<td>810</td>
-			<td>100</td>
-			<td>100</td>
-			<td>100</td>
-			<td>Верхняя точка круга должна быть положительной</td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>100</td>
-			<td>650</td>
-			<td>80</td>
-			<td>80</td>
-			<td>45</td>
-			<td>Нижняя точка круга должна быть в пределах рисунка</td>
-		</tr>
-	</table>
-</div><div class="task_block empty_on_print" id="task7060">
-	<div class="task_id">7060</div>
-    <h3>Задача</h3>
-	<div class="task_desc"><p>Написать программу для построения двух прямоугольников: синего и красного. Закрасить площадь пересечения прямоугольников желтым цветом. Пользователь вводит координаты верхнего левого угла (x,y), ширину (width) и высоту (height) синего и красного прямоугольников. Если хотя бы один из прямоугольников не видно на рисунке, то выводить сообщение об ошибке.</p><p><img src="images/task7060example.png" style="height:90px;"/></p></div>
-	<table class="check_values">
-		<tr>
-			<th rowspan="2">Номер теста</th>
-			<th colspan="8">Вводимые данные</th>
-			<th rowspan="2">Результат</th>
-		</tr>
-		
-	<tr>
-		<th>X<sub>1</sub></th>
-		<th>Y<sub>1</sub></th>
-		<th>W<sub>1</sub></th>
-		<th>H<sub>1</sub></th>
-		<th>X<sub>2</sub></th>
-		<th>Y<sub>2</sub></th>
-		<th>W<sub>2</sub></th>
-		<th>H<sub>2</sub></th>
-	</tr>
-	<tr>
-		<td></td>
-		<td>10</td>
-		<td>10</td>
-		<td>200</td>
-		<td>100</td>
-		<td>50</td>
-		<td>50</td>
-		<td>300</td>
-		<td>350</td>
-		<td><img src="images/task7060test1.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>25</td>
-		<td>25</td>
-		<td>200</td>
-		<td>200</td>
-		<td>225</td>
-		<td>225</td>
-		<td>200</td>
-		<td>200</td>
-		<td><img src="images/task7060test2.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>500</td>
-		<td>200</td>
-		<td>100</td>
-		<td>200</td>
-		<td>10</td>
-		<td>400</td>
-		<td>100</td>
-		<td>120</td>
-		<td><img src="images/task7060test3.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>60</td>
-		<td>70</td>
-		<td>120</td>
-		<td>200</td>
-		<td>50</td>
-		<td>50</td>
-		<td>120</td>
-		<td>200</td>
-		<td><img src="images/task7060test4.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>100</td>
-		<td>100</td>
-		<td>200</td>
-		<td>200</td>
-		<td>200</td>
-		<td>200</td>
-		<td>50</td>
-		<td>50</td>
-		<td><img src="images/task7060test5.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>150</td>
-		<td>150</td>
-		<td>150</td>
-		<td>300</td>
-		<td>150</td>
-		<td>150</td>
-		<td>150</td>
-		<td>300</td>
-		<td><img src="images/task7060test6.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>100</td>
-		<td>0</td>
-		<td>100</td>
-		<td>500</td>
-		<td>0</td>
-		<td>200</td>
-		<td>700</td>
-		<td>100</td>
-		<td><img src="images/task7060test7.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>5</td>
-		<td>0</td>
-		<td>10</td>
-		<td>10</td>
-		<td>0</td>
-		<td>5</td>
-		<td>10</td>
-		<td>10</td>
-		<td><img src="images/task7060test8.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>200</td>
-		<td>200</td>
-		<td>100</td>
-		<td>100</td>
-		<td>900</td>
-		<td>200</td>
-		<td>100</td>
-		<td>10</td>
-		<td>Правая сторона прямоугольника должна быть в пределах рисунка</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>102</td>
-		<td>200</td>
-		<td>100</td>
-		<td>20</td>
-		<td>0</td>
-		<td>500</td>
-		<td>100</td>
-		<td>120</td>
-		<td>Нижняя сторона прямоугольника должна быть в пределах рисунка</td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>105</td>
-		<td>5</td>
-		<td>10</td>
-		<td>10</td>
-		<td>100</td>
-		<td>0</td>
-		<td>10</td>
-		<td>30</td>
-		<td><img src="images/task7060test11.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>150</td>
-		<td>150</td>
-		<td>50</td>
-		<td>300</td>
-		<td>100</td>
-		<td>100</td>
-		<td>300</td>
-		<td>200</td>
-		<td><img src="images/task7060test12.png" class="example_image"/></td>
-	</tr>
-	<tr>
-		<td></td>
-		<td>0</td>
-		<td>0</td>
-		<td>802</td>
-		<td>200</td>
-		<td>0</td>
-		<td>0</td>
-		<td>610</td>
-		<td>610</td>
-		<td>Правая сторона прямоугольника должна быть в пределах рисунка</td>
-	</tr>
-	</table>
-</div><div class="task_block empty_on_print" id="task6409">
-	<div class="task_id">6409</div>
-    <h3>Задача</h3>
-	<div class="task_desc"><p>Написать программу для построения равнобедренного треугольника при помощи синих линий. Пользователь вводит координаты одной точки (x,y), длину основания (A) и длину одной из сторон (L). Первая линия направлена горизонтально вправо от данной точки, две других линии направлены вниз (Рис.1).</p>
-	<p><img src="images/task6409example.png" class="example_image"/></p></div>
-	<table class="check_values">
-		<tr>
-			<th rowspan="2">Номер теста</th>
-			<th colspan="4">Вводимые данные</th>
-			<th rowspan="2">Результат</th>
-		</tr>
-		<tr>
-			<th>x</th>
-			<th>y</th>
 			<th>A</th>
-			<th>L</th>
+			<th>B</th>
 		</tr>
 		<tr>
 			<td></td>
-			<td>5</td>
-			<td>5</td>
-			<td>500</td>
-			<td>300</td>
-			<td><img src="images/task6409test1.png" class="example_image"/></td>
+			<td><a href="files/task4769/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>P</td>
+			<td>Q</td>
+			<td>16</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>300</td>
-			<td>20</td>
-			<td>20</td>
-			<td>200</td>
-			<td><img src="images/task6409test2.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>100</td>
-			<td>200</td>
-			<td>200</td>
-			<td>200</td>
-			<td><img src="images/task6409test5.png" class="example_image"/></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td>25</td>
-			<td>25</td>
+			<td><a href="files/task4769/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>N</td>
+			<td>K</td>
 			<td>0</td>
-			<td>110</td>
-			<td>Длина основания должна быть положительна</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>100</td>
-			<td>102</td>
-			<td>200</td>
-			<td>0</td>
-			<td>Длина боковой стороны должна быть положительна</td>
+			<td><a href="files/task4769/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>W</td>
+			<td>X</td>
+			<td>41</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>600</td>
-			<td>100</td>
-			<td>210</td>
-			<td>100</td>
-			<td>Невозможно сформировать треугольник с данными длинами сторон</td>
+			<td><a href="files/task4769/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>U</td>
+			<td>T</td>
+			<td>4</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>200</td>
-			<td>200</td>
-			<td>200</td>
-			<td>100</td>
-			<td>Невозможно сформировать треугольник с данными длинами сторон</td>
+			<td><a href="files/task4769/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>F</td>
+			<td>A</td>
+			<td>Одна из указанных букв не найдена</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>200</td>
-			<td>640</td>
-			<td>120</td>
-			<td>240</td>
-			<td>Фигура не помещается внутри рисунка</td>
+			<td><a href="files/task4769/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>I</td>
+			<td>I</td>
+			<td>В данной строке несколько искомых букв</td>
 		</tr>
 		<tr>
 			<td></td>
-			<td>807</td>
-			<td>120</td>
-			<td>200</td>
-			<td>300</td>
-			<td>Фигура не помещается внутри рисунка</td>
+			<td><a href="files/task4769/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>B</td>
+			<td>E</td>
+			<td>Одна из указанных букв не найдена</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4769/test8.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>P</td>
+			<td>Q</td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4769/test9.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>S</td>
+			<td>F</td>
+			<td>Одна из указанных букв не найдена</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4769/test10.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>P</td>
+			<td>Q</td>
+			<td>В данной строке несколько искомых букв</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4769/test11.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>P</td>
+			<td>Q</td>
+			<td>В данной строке несколько искомых букв</td>
 		</tr>
 	</table>
-</div><div id="task2386" class="task_block">
-	<div class="task_id">2386</div>
+</div><div id="link_c2_p8.3" class="task_block">
+	<div class="check_single">
+	<p>При возникновении ошибочной ситуации не всегда нужно прекращать работу программы. В случае с файлами, подключениями к базе данных или другим серверам вам еще нужно корректно закрыть подключение. В некоторых других случаях нужно вывести сообщение и продолжить работу. Другие способы обработки ошибок рассмотрены в главе 8.3 "Способы обработки ошибок" части II книги "Совершенный код" <a href="Stiv_Makkonnell_-_Sovershenny_kod_2-e_izdanie.pdf#page=211" target="_blank">(открыть в новой вкладке)</a>.</p>
+	</div>
+</div><div class="task_block" id="task9930">
+	<div class="task_id">9930</div>
+    <h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит абсолютные имена файлов. Каждое имя на отдельной строчке. Нужно вывести на экран краткое имя файла. Имена файлов не должны содержать следующие символы:
+	<ul>
+		<li>Звездочка (*)</li>
+		<li>Вертикальная черта (|)</li>
+		<li>Обратная косая черта (\)</li>
+		<li>Двоеточие (:)</li>
+		<li>Двойные кавычки (")</li>
+		<li>Меньше (<)</li>
+		<li>Больше (>)</li>
+		<li>Вопросительный знак (?)</li>
+		<li>Косая черта (/)</li>
+	</ul>
+	</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла
+Некорректное имя файла</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">test
+notepad
+regedit</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">bing
+DMR_48</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task9930/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">
+
+README</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task6861">
+	<div class="task_id">6861</div>
+    <h3>Задача</h3>
+	<div class="task_desc">Исходный файл содержит адреса электронной почты. Каждый адрес на отдельной строчке. Нужно вывести на экран имя пользователя.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6861/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">example
+test_user
+fakemail</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6861/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">example
+job</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6861/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">jdoe.employees
+bgates.employees
+omtit.test
+omtit.omsk</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6861/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Файл не существует</td>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task6861/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Некорректный почтовый адрес
+Некорректный почтовый адрес
+Некорректный почтовый адрес
+Некорректный почтовый адрес
+Некорректный почтовый адрес</td>
+			</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task3226">
+	<div class="task_id">3226</div>
 	<h3>Задача</h3>
-	<div class="task_desc">Заполнить массив случайным образом числами от 100 до 999 включительно и вывести на экран.</div>
-</div><div id="task4342" class="task_block">
-	<div class="task_id">4342</div>
+	<div class="task_desc">Файл с исходными данными содержит открывающиеся и закрывающиеся фигурные скобочки. Нужно определить максимальную глубину вложенности.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Неожиданный конец файла</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Файл не существует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Неожиданная закрывающаяся скобочка</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Неожиданный конец файла</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test8.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Неожиданная закрывающаяся скобочка</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task3226/test9.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>5</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4372">
+	<div class="task_id">4372</div>
 	<h3>Задача</h3>
-	<div class="task_desc">Вывести на экран 10 случайных чисел в промежутке от 0 до 30. Числа не должны повторяться.</div>
-</div><div id="task9159" class="task_block">
-	<div class="task_id">9159</div>
+	<div class="task_desc">Файлы с исходными данными содержат таблицу стилей CSS. Нужно вывести список селекторов, описанных в файле.
+	</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4372/test1.css" target="_blank">открыть в новой вкладке</a></td>
+			<td>
+				div<br/>
+				a<br/>
+				body
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4372/test2.css" target="_blank">открыть в новой вкладке</a></td>
+			<td>.illustration<br/>.col-xs<br/>.col-sm</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4372/test3.css" target="_blank">открыть в новой вкладке</a></td>
+			<td>
+				table tr<br/>
+				table tr td<br/>
+				form div label<br/>
+				form div input
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4372/test4.css" target="_blank">открыть в новой вкладке</a></td>
+			<td>
+				a<br/>
+				a:visited<br/>
+				a:hover<br/>
+				a[target="_blank"]
+			</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task4463">
+	<div class="task_id">4463</div>
 	<h3>Задача</h3>
-	<div class="task_desc">Магазин обслужил за день X покупателей, каждый из которых потратил на покупки какую то сумму. Суммы расходов заполнить случайным образом в пределах от 100 до 999. Посчитать дневную прибыль магазина и сумму среднего потребительского чека.</div>
-</div><div id="task5309" class="task_block">
-	<div class="task_id">5309</div>
+	<div class="task_desc">Файлы с исходными данными содержат страницы с html разметкой.
+	Нужно вывести свойство атрибута src для каждого тэга script.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">js/jquery.js
+js/jasmine.js</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">js/jquery.js
+js/lodash.js
+application.js</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">js/jquery.js
+js/jasmine.js</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Файл не содержит скриптов</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">Файл отсутствует</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">js/jquery.js
+js/jasmine.js</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">https://www.google-analytics.com/analytics.js
+https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task4463/test8.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td class="preformatted">js/jquery.js
+js/jasmine.js</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task1668">
+	<div class="task_id">1668</div>
 	<h3>Задача</h3>
-	<div class="task_desc">Случайным образом сгенерировать 100 чисел, которые не вызовут ошибку при решении задачи <a href="Задания к 3 практической работе.html#task5201" target="_blank">ЛР3#5201(открыть в новой вкладке)</a>. Вывести эти числа и результат решения целевой задачи в формате CSV с разделителем &quot;;&quot; и заголовком.</div>
-	<div class="check_single preformatted">R;C
-13;81.6814
-17;106.8142</div>
-</div><div id="task3290" class="task_block">
-	<div class="task_id">3290</div>
+	<div class="task_desc">Файлы с исходными данными содержат страницы с html разметкой.
+	Нужно написать в одну строчку множество пар <b>ключ</b>=<b>значение</b> и соединить их символом &amp;. <b>Ключ</b> это значение атрибута 'name' у тэга input. <b>Значение</b> это значение атрибута 'value' у того же тэга. Пробелы нужно заменить на символ &plus;</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task1668/test1.html" target="_blank">открыть в новой вкладке</a></td>
+			<td>username=Иван+Иванович&amount=1000&cashless=true</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task1668/test2.html" target="_blank">открыть в новой вкладке</a></td>
+			<td>username=Иван+Иванович&amount=7879&target=8+913+123+12+34</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task1668/test3.html" target="_blank">открыть в новой вкладке</a></td>
+			<td>username=Иван+Иванович&amount=&target=8+913+123+12+34</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task9417">
+	<div class="task_id">9417</div>
+    <h3>Задача</h3>
+	<div class="task_desc">Исходные данные находятся в нескольких файлах dataX.txt, где X - число от 0 до 10 включительно. Каждый файл содержит неизвестное количество целых чисел, записанных в столбик без дополнительного оформления. Посчитать сумму чисел в каждом файле, а также общую сумму. При возникновении ошибки, вывести сообщение, прекратить обработку текущего файла и перейти к обработке следующего.</div>
+	<div class="check_single preformatted">Обработка файла task9417/data0.txt
+Сумма в файле: 23066
+Обработка файла task9417/data1.txt
+Сумма в файле: 8807
+Обработка файла task9417/data2.txt
+Сумма в файле: 2573780
+Обработка файла task9417/data3.txt
+Сумма в файле: 203549
+Обработка файла task9417/data4.txt
+ОШИБКА: Файл не найден
+Обработка файла task9417/data5.txt
+Сумма в файле: 16426133
+Обработка файла task9417/data6.txt
+ОШИБКА: Данные некорректного формата
+Обработка файла task9417/data7.txt
+Сумма в файле: 329058743
+Обработка файла task9417/data8.txt
+ОШИБКА: Файл не найден
+Обработка файла task9417/data9.txt
+ОШИБКА: Данные некорректного формата
+Обработка файла task9417/data10.txt
+Сумма в файле: -27676
+Общая сумма: 348266402</div>
+</div><div class="task_block" id="task3148">
+	<div class="task_id">3148</div>
+    <h3>Задача</h3>
+	<div class="task_desc">Исходные данные находятся в нескольких файлах dataX.csv, где X - целое число. Каждый файл содержит два столбика целых чисел, разделенных символом ";". При запуске программы нужно обработать только часть файлов. Список файлов для обработки находится в файле listY.txt, где Y - вводится с клавиатуры. Посчитать количество записей, в которых левое число меньше правого для каждого файла в списке, а также общее количество во всех файлах списка. При возникновении ошибки, вывести сообщение, прекратить обработку текущего файла и перейти к обработке следующего в списке.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list1.txt
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Общее количество подходящих записей: 248</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list2.txt
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Обработка файла task3148/data1.csv
+Количество подходящих записей в файле: 247
+Общее количество подходящих записей: 495</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list3.txt
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Обработка файла task3148/data2.csv
+Количество подходящих записей в файле: 785
+Обработка файла task3148/data4.csv
+ОШИБКА: Некорректный формат
+Обработка файла task3148/data6.csv
+ОШИБКА: Некорректный формат
+Обработка файла task3148/data8.csv
+Количество подходящих записей в файле: 0
+Общее количество подходящих записей: 1033</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list4.txt
+Обработка файла task3148/data1.csv
+Количество подходящих записей в файле: 247
+Обработка файла task3148/data3.csv
+Количество подходящих записей в файле: 1507
+Обработка файла task3148/data5.csv
+ОШИБКА: Файл данных не найден
+Обработка файла task3148/data7.csv
+Количество подходящих записей в файле: 249
+Общее количество подходящих записей: 2003</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list5.txt
+ОШИБКА: Список не найден</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td class="preformatted">Обработка списка task3148/list6.txt
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Обработка файла task3148/data0.csv
+Количество подходящих записей в файле: 248
+Общее количество подходящих записей: 744</td>
+		</tr>
+	</table>
+</div><div class="task_block" id="task2137">
+	<div class="task_id">2137</div>
 	<h3>Задача</h3>
-	<div class="task_desc">Случайным образом сгенерировать 100 пар чисел, которые не вызовут ошибку при решении задачи <a href="Задания к 3 практической работе.html#task3943" target="_blank">ЛР3#3943(открыть в новой вкладке)</a>. Вывести эти числа и результат решения целевой задачи в формате CSV с разделителем &quot;;&quot; и заголовком.</div>
-	<div class="check_single preformatted">x;y;r
--5;81;-10.0000
-7507;7499;-435.7062
-</div>
-</div><div id="task5345" class="task_block">
-	<div class="task_id">5345</div>
-	<h3>Задача</h3>
-	<div class="task_desc">Случайным образом сгенерировать тестовые данные для задачи <a href="Задания к 4 практической работе.html#task6556" target="_blank">ЛР4#6556(открыть в новой вкладке)</a>. 50 групп чисел для результата &quot;Размещение возможно&quot;, 50 групп для результата &quot;Размещение невозможно&quot; и по 20 групп для каждого случая ошибки. Вывести числа, результаты решения и сообщения об ошибке в формате CSV с разделителем &quot;;&quot; и заголовком.</div>
-	<div class="check_single preformatted">a;b;c;d;результат
-3;5;7;9;Размещение возможно
-13;11;7;19;Размещение невозможно
-23;3;9;11;Размещение невозможно
--2;8;9;7;Значение A должно быть неотрицательным
-3;-4;5;6;Значение B должно быть неотрицательным
-13;15;-17;19;Значение C должно быть неотрицательным
-6911;5881;3203;-4639;Значение D должно быть неотрицательным
-</div>
-</div><div id="task6812" class="task_block">
-	<div class="task_id">6812</div>
-	<h3>Задача</h3>
-	<div class="task_desc">Случайным образом сгенерировать тестовые данные для задачи <a href="Задания к 5 практической работе.html#task1217" target="_blank">ЛР5#1217(открыть в новой вкладке)</a>. По 30 групп чисел для каждого класса эквивалентности результатов и по 20 групп для каждого случая ошибки. Вывести числа, результаты решения и сообщения об ошибке в формате CSV с разделителем &quot;;&quot; и заголовком. Экранировать символы из текста результата (Заменить ";" на "\;").</div>
-	<div class="check_single preformatted">A1;B1;A2;B2;Результат
-2;3;5;7;не пересекаются
-11;17;13;19;пересекаются (13\;17)
-23;37;29;31;пересекаются (29\;31)
-43;53;41;47;пересекаются (43\;47)
-5;15;0;30;пересекаются (5\;15)
-67;71;59;61;не пересекаются
-79;73;83;89;Значение A должно быть меньше значения B
-97;101;107;103;Значение A должно быть меньше значения B
-</div>
+	<div class="task_desc">Сколько раз в каждом фрагменте встречается символ А, вводимый с клавиатуры. Символ А это буква латинского алфавита или знак пунктуации. В файле находится множество фрагментов текста, обрамленных кавычками. Начало и конец фрагмента могут находиться на разных строчках в файле. Фрагменты разделяются запятой. Между кавычками и запятыми могут быть только пробелы и знаки переноса строки.</div>
+	<table class="check_values">
+		<tr>
+			<th>Номер теста</th>
+			<th>Содержимое файла</th>
+			<th>Вводимые данные</th>
+			<th>Результат</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test1.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>s</td>
+			<td>0 0 0 0 2 2 0 1 2 0 0 3 0 0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test2.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>Q</td>
+			<td>4 1 0 2 0 1 3 0 2 0</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test3.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>d</td>
+			<td>0 1 2 0 0 1 3 1 1 0 1 0 0 0 0 3 0 2 0 0 0 0 1 0 1 0 2 1</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test4.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>,</td>
+			<td>1 3 1 3 2</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test5.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>"</td>
+			<td>Сообщение об ошибке</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test6.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>K</td>
+			<td>Сообщение об ошибке</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><a href="files/task2137/test7.txt" target="_blank">открыть в новой вкладке</a></td>
+			<td>a</td>
+			<td>Сообщение об ошибке</td>
+		</tr>
+	</table>
 </div></body></html>

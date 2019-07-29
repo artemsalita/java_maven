@@ -58,9 +58,33 @@ public class PointSuite2 {
         dest.x = 2;
         dest.y = 9;
 
+// результат вызова метода дистбитв записывается в переменную резалт
+
         result2 = Point2.distanceBetween(src,dest);
         Assert.assertEquals(12.3693, result2, 0.0001);
+
+        src = Point2.zero ();
+        dest = Point2.zero ();
+        result2 = Point2.distanceBetween(src,dest);
+        Assert.assertEquals(0, result2, 0.0001);
+
+        src = Point2.zero ();
+        dest = Point2.make(-5,-7);
+        result2 = Point2.distanceBetween(src,dest);
+        Assert.assertEquals(8.6023, result2, 0.0001);
+
+        //создание с помощью статического метода
+        src = Point2.make(-1,-3);
+        dest = Point2.make(2,9);
+        result2 = Point2.distanceBetween(src,dest);
+        Assert.assertEquals(12.3693, result2, 0.0001);
+
+        // создание с помощью конструктора
+       src =  new Point2(-1,-3);
+       dest =  new Point2(2,9);
+       result2 = Point2.distanceBetween(src,dest);
+       Assert.assertEquals(12.3693, result2, 0.0001);
+
+
     }
-
-
 }
