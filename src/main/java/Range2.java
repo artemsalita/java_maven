@@ -1,8 +1,5 @@
 public class Range2 {
 
-    int from;
-    int to;
-
     public static boolean hasIntersection(int redA, int redB, int greenA, int greenB) {
 
 
@@ -26,26 +23,9 @@ public class Range2 {
         }
     }
 
-    public static boolean hasIntersection(Range2 red, Range2 green) {
-        if (red.to < red.from) {
-            String mesaga = "Некорректный интервал. Левая граница должна быть меньше правой";
-            IllegalArgumentException M = new IllegalArgumentException(mesaga);
-            throw M;
-        }
-        if (green.to < green.from) {
-
-            String mesaga = "Некорректный интервал. Левая граница должна быть меньше правой";
-            IllegalArgumentException M = new IllegalArgumentException(mesaga);
-            throw M;
-        }
-
-//    rightA<leftB&&leftA<rightB
-        if (green.from < red.to && red.from < green.to) {
-            return true;
-        } else {
-            return false;
-        }
+    public static boolean hasIntersection() {
+        Range2 from = new Range2();
+        Range2 to = new Range2();
+        boolean result;
     }
-
-
-    }
+}
