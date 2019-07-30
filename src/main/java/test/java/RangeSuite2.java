@@ -59,6 +59,7 @@ public class RangeSuite2 {
         result2 = Range2.hasIntersection(left,right);
         Assert.assertTrue(result2);
 
+
     }
 
 }
