@@ -2,6 +2,7 @@ public class Range2 {
 
     int from;
     int to;
+    public Range2(){}
 
     public static boolean hasIntersection(int redA, int redB, int greenA, int greenB) {
 
@@ -47,5 +48,16 @@ public class Range2 {
         }
     }
 
+    public static Range2 make(int rfrom, int rto){
+        Range2 instance = new Range2();
+        instance.from = rfrom;
+        instance.to = rto;
+        return  instance;
+    }
+
+    public Range2 (int rfrom, int rto){
+        from = rfrom;
+        to = rto;
+    }
 
 }

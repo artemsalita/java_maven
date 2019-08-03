@@ -165,41 +165,73 @@ public class Methods {
         if (X == Y || X == Z || Y == Z) {
             A = true;
         }
-        if (X!=Y && X!=Z && Y!=Z){
+        if (X != Y && X != Z && Y != Z) {
             A = false;
         }
         return A;
     }
 
     //task15_1
-    public static boolean task4847_1(int X, int Y, int Z){
-       // boolean A;
+    public static boolean task4847_1(int X, int Y, int Z) {
+        // boolean A;
 
-        return /*A =*/ X == Y || X ==Z || Z == Y ;
+        return /*A =*/ X == Y || X == Z || Z == Y;
 
     }
 
     //task13-1
-    public static double  task9020 (int X){
-        if(X>=62){
+    public static double task9020(int X) {
+        if (X >= 62) {
 //            System.out.println("Подкоренное выражение должно быть неотрицательным");
-          String mesaga = "Подкоренное выражение должно быть неотрицательным";
-          IllegalArgumentException M = new IllegalArgumentException(mesaga);
-          throw M;
+            String mesaga = "Подкоренное выражение должно быть неотрицательным";
+            IllegalArgumentException M = new IllegalArgumentException(mesaga);
+            throw M;
         }
         double A = 3 * Math.sqrt(61 - X);
-        return  A;
-
-    }
-    public static Direction backwardTask (double Xa,double Ya,double Xb,double Yb){
-      Direction dir = new Direction();
-      dir.angle = 1;
-      dir.distance = 2;
-      return dir;
-
+        return A;
 
     }
 
+    public static Direction backwardTask(double Xa, double Ya, double Xb, double Yb) {
+        Direction dir = new Direction();
+        dir.angle = 1;
+        dir.distance = 2;
+        return dir;
+
+    }
+
+    public static Direction backwardTask(Point2 a, Point2 b) {
+        double dx;
+        double dy;
+        double angle; //угол
+        double distance; //проложение
+
+        Direction instance = new Direction();
+        dx = b.x - a.x;
+        dy = b.y - a.y;
+        double r = Math.atan(Math.abs(dy / dx))*(180/Math.PI);
+        if (dx >= 0 && dy > 0) {
+            angle = r;
+        }
+        else if (dx < 0 && dy >= 0) {
+            angle = 180 - r;
+        }
+        else if (dx <= 0 && dy < 0) {
+            angle = 180 + r;
+        }
+        else  {
+            angle = 360 - r;
+        }
+        distance = Point2.distanceBetween(a, b);
+
+        instance.angle = angle;
+        instance.distance = distance;
 
 
+
+        return instance;
+
+
+
+    }
 }
