@@ -227,11 +227,14 @@ public class Methods {
         instance.angle = angle;
         instance.distance = distance;
 
-
-
         return instance;
-
-
-
     }
+
+
+
+
+
+
+
+
 }
