@@ -12,6 +12,22 @@ public class model_barbershop {
         int startLunch = 204;
         int endLunch = 300;
         int endDay = 504;
+        int strtijka;
+        int strijkaBrite;
+
+        int tipClienta = r.nextInt(2);
+
+        if (tipClienta == 0){
+        strtijka = 12 + r.nextInt(24-12);
+            System.out.println("время стрижки" + strtijka + "минут");
+        }else {
+            strijkaBrite =  12 + r.nextInt(24-12)+ 8 + r.nextInt(12-8);
+
+            System.out.println("время стрижки и бритья" + strijkaBrite + "минут");
+        }
+
+
+        System.out.println("");
 
 
         int prihodPervogoClienta = 25 + r.nextInt(45 - 25);
