@@ -2,7 +2,7 @@ package zadachi;
 
 import java.util.Random;
 
-public class model_barbershop {
+public class world {
 
     public static void main(String[] args) {
 
