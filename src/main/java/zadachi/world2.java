@@ -13,39 +13,51 @@ public class world2 {
         int strijka;
         int strijkaBrite;
         int prihodClienta = 25 + r.nextInt(45 - 25);
-        int clients = 0;
+        int clients = -1;
         int startclients = 0;
+        int startLunch = 204;
+        int endLunch = 300;
+        int endDay = 504;
 
         while (timer <= 540) {
 
             if (prihodClienta == timer) {
                 System.out.println("Клиент пришёл в " + prihodClienta + " минут");
                 clients++;
-                System.out.println("Клиентов в очереди " + clients + "человек");
+                System.out.println("Клиентов в очереди " + clients + " человек");
+
                 if (tipClienta == 0) {
                     strijka = 12 + r.nextInt(24 - 12);
-                    System.out.println("Время стрижки " + strijka + " минут");
+                    System.out.println("Тип клиента 1" + " Время стрижки " + strijka + " минут");
                     endtime = endtime + strijka + prihodClienta;
+                    System.out.println("");
                 } else {
                     strijkaBrite = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);
                     endtime = endtime + strijkaBrite + prihodClienta;
-                    System.out.println("Время стрижки и бритья " + strijkaBrite + " минут");
+                    System.out.println("Тип клиента 2" + " Время стрижки и бритья " + strijkaBrite + " минут");
+                    System.out.println("");
                 }
 
                 if (startclients <= endtime){
                     startclients = endtime - prihodClienta;
-                }
+                } else { startclients = endtime + prihodClienta; }
 
                 prihodClienta = prihodClienta + 25 + r.nextInt(45 - 25);
             }
             if (endtime == timer) {
                 System.out.println("Клиент обработан в " + endtime + " минут");
-                clients--;
-                System.out.println("Клиентов в очереди " + clients + "человек");
-
+                clients--;  //!! срабатывает только первый раз
+                System.out.println("Клиентов в очереди " + clients + " человек");
+                System.out.println("");
             }
 
 
+
+            if (timer >= endDay){
+                System.out.println("");
+                System.out.println("Рабочий день окончен");
+                break;
+            }
 
             timer++;
         }
