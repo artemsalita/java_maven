@@ -29,18 +29,25 @@ public class world2 {
                 if (tipClienta == 0) {
                     strijka = 12 + r.nextInt(24 - 12);
                     System.out.println("Тип клиента 1" + " Время стрижки " + strijka + " минут");
-                    endtime = endtime + strijka + prihodClienta;
-                    System.out.println("");
+                    if (endtime <= prihodClienta){
+                        endtime = prihodClienta + strijka;
+                        System.out.println("Время простоя");
+                    } else {
+                        endtime = endtime + strijka ;
+                        System.out.println("Время ожидания");
+                    }
                 } else {
                     strijkaBrite = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);
-                    endtime = endtime + strijkaBrite + prihodClienta;
                     System.out.println("Тип клиента 2" + " Время стрижки и бритья " + strijkaBrite + " минут");
-                    System.out.println("");
-                }
 
-                if (startclients <= endtime){
-                    startclients = endtime - prihodClienta;
-                } else { startclients = endtime + prihodClienta; }
+                    if (endtime <= prihodClienta){
+                        endtime = prihodClienta + strijkaBrite;
+                        System.out.println("Время простоя");
+                    } else {
+                        endtime = endtime + strijkaBrite;
+                        System.out.println("Время ожидания");
+                    }
+                }
 
                 prihodClienta = prihodClienta + 25 + r.nextInt(45 - 25);
             }
@@ -50,8 +57,6 @@ public class world2 {
                 System.out.println("Клиентов в очереди " + clients + " человек");
                 System.out.println("");
             }
-
-
 
             if (timer >= endDay){
                 System.out.println("");
