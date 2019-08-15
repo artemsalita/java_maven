@@ -13,7 +13,7 @@ public class world2 {
         int processDuration;
         int tipClienta = r.nextInt(2);
         int clients = -1;
-        int startclients = 0;
+//        int startclients = 0;
         int startLunch = 204;
         int endLunch = 300;
         int endDay = 504;
@@ -22,9 +22,11 @@ public class world2 {
             processDuration = 12 + r.nextInt(24 - 12);
             System.out.println("Тип клиента 1" + " Время стрижки " + processDuration + " минут");
         } else {
-            processDuration = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);;
+            processDuration = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);
+
             System.out.println("Тип клиента 2" + " Время стрижки и бритья " + processDuration + " минут");
         }
+
         int endtime = prihodClienta + processDuration;
 
         while (timer <= 540) {
@@ -35,17 +37,17 @@ public class world2 {
                 clients++;
                 System.out.println("Клиентов в очереди " + clients + " человек");
 
-
                 prihodClienta = prihodClienta + 25 + r.nextInt(45 - 25);
             }
             if (endtime == timer) {
-               tipClienta = r.nextInt(2);
+                tipClienta = r.nextInt(2);
 
                 if (tipClienta == 0) {
                     processDuration = 12 + r.nextInt(24 - 12);
                     System.out.println("Тип клиента 1" + " Время стрижки " + processDuration + " минут");
                 } else {
-                    processDuration = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);;
+                    processDuration = 12 + r.nextInt(24 - 12) + 8 + r.nextInt(12 - 8);
+
                     System.out.println("Тип клиента 2" + " Время стрижки и бритья " + processDuration + " минут");
                 }
 
@@ -60,6 +62,13 @@ public class world2 {
                 clients--;  //!! срабатывает только первый раз
                 System.out.println("Клиентов в очереди " + clients + " человек");
                 System.out.println("");
+            }
+
+            if (startLunch == timer){
+                System.out.println("");
+                System.out.println("Обед");
+                System.out.println("");
+                timer = endLunch;
             }
 
             if (timer >= endDay) {
