@@ -9,15 +9,16 @@ public class world2 {
         Random r = new Random();
         int timer = 0;
 
-        int prihodClienta = 25 + r.nextInt(45 - 25);
+        int prihodClienta = 5 + r.nextInt(15 - 5);
         int processDuration;
         int tipClienta = r.nextInt(2);
-        int clients = -1;
-//        int startclients = 0;
+        int clients = 0;
+        int startclients = 0;
         int startLunch = 204;
         int endLunch = 300;
         int endDay = 504;
 
+        System.out.println("Первый клиент пришёл в " + prihodClienta + " минут" + " Клиентов в очереди " + clients + " человек");
         if (tipClienta == 0) {
             processDuration = 12 + r.nextInt(24 - 12);
             System.out.println("Тип клиента 1" + " Время стрижки " + processDuration + " минут");
@@ -29,17 +30,29 @@ public class world2 {
 
         int endtime = prihodClienta + processDuration;
 
+
+        System.out.println("Клиент обработан в " + endtime + " минут");
+        System.out.println();
+
+
+
         while (timer <= 540) {
 
             if (prihodClienta == timer) {
 
-                System.out.println("Клиент пришёл в " + prihodClienta + " минут");
-                clients++;
-                System.out.println("Клиентов в очереди " + clients + " человек");
+                prihodClienta = prihodClienta + 5 + r.nextInt(15 - 5);
 
-                prihodClienta = prihodClienta + 25 + r.nextInt(45 - 25);
+                System.out.println("Следующий клиент пришёл в " + prihodClienta + " минут" + " Клиентов в очереди " + clients + " человек");
+                clients++;
+
             }
             if (endtime == timer) {
+
+                System.out.println("Клиент обработан в " + endtime + " минут");
+                clients--;  //!! срабатывает только первый раз
+                System.out.println("Клиентов в очереди " + clients + " человек");
+                System.out.println("");
+
                 tipClienta = r.nextInt(2);
 
                 if (tipClienta == 0) {
@@ -51,25 +64,22 @@ public class world2 {
                     System.out.println("Тип клиента 2" + " Время стрижки и бритья " + processDuration + " минут");
                 }
 
-                if (endtime <= prihodClienta) {
-                    endtime = prihodClienta + processDuration;
-                    System.out.println("Время простоя");
-                } else {
+                if (clients > 0) {
                     endtime = endtime + processDuration;
-                    System.out.println("Время ожидания");
-                }
-                System.out.println("Клиент обработан в " + endtime + " минут");
-                clients--;  //!! срабатывает только первый раз
-                System.out.println("Клиентов в очереди " + clients + " человек");
-                System.out.println("");
+                } else endtime = prihodClienta + processDuration;
+
             }
 
-            if (startLunch == timer){
-                System.out.println("");
-                System.out.println("Обед");
-                System.out.println("");
-                timer = endLunch;
-            }
+//            if (prihodClienta <= endLunch && prihodClienta >=startLunch){
+//                prihodClienta = endLunch;
+//            }
+//
+//            if (startLunch == timer){
+//                System.out.println("");
+//                System.out.println("Обед");
+//                System.out.println("");
+//                timer = endLunch;
+//            }
 
             if (timer >= endDay) {
                 System.out.println("");
